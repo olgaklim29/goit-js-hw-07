@@ -1,19 +1,11 @@
-const input = document.querySelector('#validation-input');
-
-const handleInputBlue = event => {
-const  evtCurTar = event.currentTarget;
-
-  if (evtCurTar.value.length >= 
-    Number(evtCurTar.dataset.length)) {
-
-      evtCurTar.classList.remove('invalid');
-      evtCurTar.classList.add('valid');
-    }else {
-
-      evtCurTar.classList.remove('valid');
-      evtCurTar.classList.add('invalid');
-         }
-         console.dir(evtCurTar);
-};
-
-input.addEventListener('change', handleInputBlue);
+document.getElementById('validation-input').onblur = function() {
+  console.log(this.value.length);
+  if((this.getAttribute('data-length') > this.value.length) || (this.getAttribute('data-length') < this.value.length)) {
+      this.classList.remove('valid');
+      this.classList.add('invalid');
+  }
+  else {
+      this.classList.remove('invalid');
+      this.classList.add('valid');
+  }
+}

@@ -13,17 +13,17 @@ const images = [
   },
 ];
 
-const gallELement = document.querySelector('#gallery');
+const gallEL = document.querySelector('#gallery');
 
 const createImgEl = ({url, alt}) => 
 `<li class="gallery__item">
 <img class="gallery__img" src="${url}" alt="${alt}"></li>`;
 
-const gallItemElement = images.map(image => 
+const gallItemEl = images.map(image => 
   createImgEl(image))
   .join('');
 
-  gallELement.insertAdjacentHTML(
+  gallEL.insertAdjacentHTML(
   'beforeend',
-  gallItemElement
+  gallItemEl
 );

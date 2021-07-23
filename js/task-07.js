@@ -1,15 +1,12 @@
-const rangeFontInput = document.querySelector('#font-size-control');
-const spanTextSize = document.querySelector('#text');
+const inputRangeRef = document.querySelector("#font-size-control");
+const inputTextRef = document.querySelector("#text");
 
+inputRangeRef.value = 15;
+inputRangeRef.max = 100;
+inputRangeRef.min = 10;
 
-rangeFontInput.value = 15;
-rangeFontInput.max = 100;
-rangeFontInput.min = 10;
+const handleInput = () => {
+  inputTextRef.style.fontSize = `${inputRangeRef.value}px`;
+};
 
-
-const handleGetSizeClick = () => {
-   spanTextSize.style.fontSize = `${rangeFontInput.value}px`;
-
-}
-
-rangeFontInput.addEventListener('input', handleGetSizeClick)
+inputRangeRef.addEventListener("input", handleInput);

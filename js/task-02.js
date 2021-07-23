@@ -9,16 +9,10 @@ const ingredients = [
 
 const ingredientsList = document.querySelector('#ingredients');
 
-const createIngredientsLi = element => {
-    const elementList = document.createElement('li');
-    elementList.textContent = element;
-    
-    return elementList;
-};
+const markup = ingredients.map(item => {
+  const newTeg = document.createElement('li');
+  newTeg.innerHTML = `<p>${item}</p>`;
+  return newTeg;
+});
 
-const ingredientItem = ingredients.map(ingredient => 
-  createIngredientsLi(ingredient));
-
-ingredientsList.append(...ingredientItem);
-
-console.log(ingredientsList);
+ingredientsList.append(...markup);
